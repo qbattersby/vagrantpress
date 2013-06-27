@@ -4,7 +4,7 @@ class wordpress::create {
   # -----------------------------------------
   # wp core download --version=3.5.1 --path="wptest.wp"
   # cd wptest.wp
-  # wptest$ wp core config --dbname="wptest" --dbuser="root" --dbpass="vagrant" --dbhost="localhost"
+  # wp core config --dbname="wptest" --dbuser="root" --dbpass="vagrant" --dbhost="localhost"
   # wp db create
   # wp core install --url="http://wptest.wp" --title="WPTest" --admin_name="vagrant" --admin_password="vagrant" --admin_email="vagrant@vagrant"
 
