@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
   end
 
 
-  class MyPlugin < Vagrant.plugin("2")
+  class MysqlBackupPlugin < Vagrant.plugin("2")
     name "Mysql Backup"
 
     action_hook(:mysql_backup, :machine_action_up) do |hook|
