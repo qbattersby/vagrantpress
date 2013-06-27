@@ -64,3 +64,16 @@ which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There 
     <td>User: vagrant, Password: vagrant</td>
   </tr>
 </table>
+
+
+## TODOS
+
+ * Keep a local copy of config files for apache, php, mysql, ... and symlink them to the virtual machine. 
+   one can then edit config files without going to vagrant ssh 
+ * refactor MysqlBackupPlugin.rb
+ * what happens when wordpress installation has no database and no mysql_dump.sql?
+ * dns handling?!
+ * deleting a directory in projects should delete the according database accordingly
+
+
+ 

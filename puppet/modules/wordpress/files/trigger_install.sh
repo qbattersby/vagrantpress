@@ -68,7 +68,7 @@ while true; do
 
         # install wordpress with wp-cli ...
         wp core download --version=$version --path="."
-        wp core config --dbname="$name" --dbuser="root" --dbpass="vagrant" --dbhost="localhost"
+        wp core config --dbname="$name" --dbuser="root" --dbpass="vagrant" --dbhost="192.168.192.168"
         wp db create
         wp core install --url="http://$name_with_domain" --title="$name" --admin_name="vagrant" --admin_password="vagrant" --admin_email="vagrant@vagrant"
 

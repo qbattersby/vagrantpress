@@ -1,15 +1,14 @@
 class php5::install {
 
-  package { "php5-mysql": ensure => latest, } 
-  package { "php5-curl": ensure => latest, } 
-  package { "php5-gd": ensure => latest, } 
-  package { "php5-imagick": ensure => latest, } 
-  package { "php5-imap": ensure => latest, } 
-  package { "libapache2-mod-fastcgi": ensure => latest, } 
-  package { "php5-fpm": ensure => latest, } 
-  package { "php5": ensure => latest, } 
-  package { 'php5-cli': ensure => latest, }
-
+  package { "php5-mysql": ensure => latest, } ->
+  package { "php5-curl": ensure => latest, } ->
+  package { "php5-gd": ensure => latest, } ->
+  package { "php5-imagick": ensure => latest, } ->
+  package { "php5-imap": ensure => latest, } ->
+  package { "libapache2-mod-fastcgi": ensure => latest, } ->
+  package { "php5-fpm": ensure => latest, } ->
+  package { "php5": ensure => latest, } ->
+  package { 'php5-cli': ensure => latest, } ~>
   service { 'php5-fpm':
     ensure => running,
     enable => true,
