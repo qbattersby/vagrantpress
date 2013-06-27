@@ -18,5 +18,7 @@ node default {
   class { 'php5::install': }  
   class { 'mysql::install': }
   class { 'wpcli::install': }
+
+  class { 'wordpress::create': }
   
 }
