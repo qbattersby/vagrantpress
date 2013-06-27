@@ -29,4 +29,69 @@ Vagrant.configure("2") do |config|
   config.dnsmasq.domain = '.wp'
   config.dnsmasq.dnsmasqconf = `brew --prefix`.strip + '/etc/dnsmasq.conf'
   config.dnsmasq.keep_resolver_on_destroy = true
+
+
+
+
+
+  module MysqlBackup
+
+    class Import
+      def initialize(app, env)
+        @app = app
+        @machine = env[:machine]
+      end
+      def call(env)
+        puts "MysqlBackup import"
+
+        # @todo
+
+        # find all wp-config.php files in projects/*
+
+        # unless database for project exists, create database and import .mysql_dump
+
+        @app.call(env)
+      end
+    end
+
+    class Export
+      def initialize(app, env)
+        @app = app
+        @machine = env[:machine]
+      end
+      def call(env)
+        puts "MysqlBackup export"
+
+        # @todo
+
+        # find all wp-config.php files in projects/*
+
+        # dump mysql data for database
+
+        # save dump to projects/foobar/.mysql_dump
+
+        @app.call(env)
+      end
+    end
+
+  end
+
+
+  class MyPlugin < Vagrant.plugin("2")
+    name "Mysql Backup"
+
+    action_hook(:mysql_backup, :machine_action_up) do |hook|
+      hook.append(MysqlBackup::Import)
+    end
+
+    action_hook(:mysql_backup, :machine_action_reload) do |hook|
+      hook.append(MysqlBackup::Import)
+    end
+
+    action_hook(:mysql_backup, :machine_action_destroy) do |hook|
+      hook.prepend(MysqlBackup::Export)
+    end
+  end
+
+
 end
