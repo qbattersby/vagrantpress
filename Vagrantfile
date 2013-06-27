@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   # use https://github.com/mattes/vagrant-dnsmasq plugin
   # for dnsmasq handling
   # @todo 
-  # config.dnsmasq.domain = '.wp'
-  # config.dnsmasq.dnsmasqconf = `brew --prefix`.strip + '/etc/dnsmasq.conf'
-  # config.dnsmasq.keep_resolver_on_destroy = true
+  config.dnsmasq.domain = '.wp'
+  config.dnsmasq.dnsmasqconf = `brew --prefix`.strip + '/etc/dnsmasq.conf'
+  config.dnsmasq.keep_resolver_on_destroy = true
 end

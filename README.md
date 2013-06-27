@@ -6,9 +6,16 @@
 
 This is a fairly simple project to get up and running. 
 
-1. Clone the project.  (There’s only master branch.)
-2. Run the command `vagrant up`
-3. Open your browser to http://192.168.192.168
+```
+git clone https://github.com/hellominti/vagrantpress.git
+cd vagrantpress && vagrant up
+```
+
+Open your browser to [http://192.168.192.168](http://192.168.192.168).
+
+## TODO
+
+ * DNS handling for local domain resolution (e.g. [vagrant-dnsmasq](https://github.com/mattes/vagrant-dnsmasq))
 
 
 ## Credentials
