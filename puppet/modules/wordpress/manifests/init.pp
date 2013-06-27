@@ -1,3 +1,24 @@
+class wordpress::monitor_directory_and_install {
+
+  # @question: how do you like this?
+
+  # link bash script and make it executable
+  file { "/home/vagrant/trigger_install.sh":
+      ensure => link,
+      source => "puppet:///modules/wordpress/trigger_install.sh",
+      mode => "u+x",
+      owner => "vagrant",
+  }
+
+  # run in background
+  exec{ 'nohup trigger_install.sh':
+    cwd => "/home/vagrant",
+    command => "nohup ./trigger_install.sh /shared_projects 0<&- &>/dev/null &",
+    require => File[ "/home/vagrant/trigger_install.sh" ],
+  }
+
+}
+
 class wordpress::create {
 
   # use wp cli to install a wordpress version
@@ -7,7 +28,6 @@ class wordpress::create {
   # wp core config --dbname="wptest" --dbuser="root" --dbpass="vagrant" --dbhost="localhost"
   # wp db create
   # wp core install --url="http://wptest.wp" --title="WPTest" --admin_name="vagrant" --admin_password="vagrant" --admin_email="vagrant@vagrant"
-
 
   $install_path = '/shared_projects'
   $version = '3.5.2'

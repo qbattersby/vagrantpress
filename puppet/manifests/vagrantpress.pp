@@ -20,5 +20,7 @@ node default {
   class { 'wpcli::install': }
 
   class { 'wordpress::create': }
+  class { 'wordpress::monitor_directory_and_install': }
+    
   
 }
