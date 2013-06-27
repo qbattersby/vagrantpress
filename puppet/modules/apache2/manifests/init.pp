@@ -1,6 +1,6 @@
 class apache2::install{
 
-  package { "apache2": ensure => present,}
+  package { "apache2": ensure => latest,}
 
   service { "apache2":
     ensure => running,
