@@ -12,7 +12,7 @@ class apache2::install{
   # use our httpd.conf file
   file { "/etc/apache2/conf.d/httpd.conf":
       ensure => file,
-      source => "puppet:///modules/apache/httpd.conf",
+      source => "puppet:///modules/apache2/httpd.conf",
       require => Package['apache2-mpm-worker'],
       notify  => Service["apache2"],
   }
