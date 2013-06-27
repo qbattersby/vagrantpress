@@ -1,6 +1,7 @@
 class php5::install {
 
   package { "php5-mysql": ensure => latest, } ->
+  package { "phpmyadmin": ensure => latest, } ->
   package { "php5-curl": ensure => latest, } ->
   package { "php5-gd": ensure => latest, } ->
   package { "php5-imagick": ensure => latest, } ->

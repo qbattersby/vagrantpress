@@ -24,7 +24,7 @@ $ vagrant plugin install vagrant-dnsmasq
 $ cd vagrantpress && vagrant up; vagrant reload
 ```
 
-Open [http://192.168.192.168](http://192.168.192.168) in your browser.
+Open [http://192.168.192.168](http://192.168.192.168) in your browser or [http://192.168.192.168/phpmyadmin](http://192.168.192.168/phpmyadmin)
 
 With the help of a DNS handling plugin, you can open  [http://test.wp](http://test.wp) 
 and [http://wptest.wp](http://wptest.wp). VagrantPress currently uses [vagrant-dnsmasq](https://github.com/mattes/vagrant-dnsmasq)
