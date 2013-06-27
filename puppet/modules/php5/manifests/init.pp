@@ -3,6 +3,8 @@ class php5::install {
   package { "libapache2-mod-fastcgi": ensure => latest, }
   package { "php5-fpm": ensure => latest, }
   package { "php5": ensure => latest, }
+  
+  package { 'php5-cli': ensure => latest, }
 
   package { "php5-mysql": ensure => latest, }
   package { "php5-curl": ensure => latest, }

@@ -13,12 +13,10 @@ Exec <| tag == update |> -> Package <| |>
 
 node default {
 
-  class { 'git::install': }
+  class { 'common::install': }
   class { 'apache2::install': }
   class { 'php5::install': }  
   class { 'mysql::install': }
+  class { 'wpcli::install': }
   
-  # class{'wordpress::install':}
-  # use wp-cli instead?
-  # https://github.com/wp-cli/wp-cli
 }
