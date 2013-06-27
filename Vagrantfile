@@ -17,7 +17,7 @@ Vagrant::Config.run do |config|
   # More boxes (including the box that 'vagrant' uses as an example) are available
   # at http://vagrantup.com
   
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
