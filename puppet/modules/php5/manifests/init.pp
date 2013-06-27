@@ -1,17 +1,20 @@
 class php5::install {
 
-  package { "libapache2-mod-fastcgi": ensure => latest, }
-  package { "php5-fpm": ensure => latest, }
-  package { "php5": ensure => latest, }
-  
+  package { "php5-mysql": ensure => latest, } 
+  package { "php5-curl": ensure => latest, } 
+  package { "php5-gd": ensure => latest, } 
+  package { "php5-imagick": ensure => latest, } 
+  package { "php5-imap": ensure => latest, } 
+  package { "libapache2-mod-fastcgi": ensure => latest, } 
+  package { "php5-fpm": ensure => latest, } 
+  package { "php5": ensure => latest, } 
   package { 'php5-cli': ensure => latest, }
 
-  package { "php5-mysql": ensure => latest, }
-  package { "php5-curl": ensure => latest, }
-  package { "php5-gd": ensure => latest, }
-  package { "php5-imagick": ensure => latest, }
-  package { "php5-imap": ensure => latest, }
-
+  service { 'php5-fpm':
+    ensure => running,
+    enable => true,
+    require => Package["php5-fpm"],
+  }
 
   exec { "a2enmod actions":
       command => "a2enmod actions",
@@ -23,7 +26,7 @@ class php5::install {
   exec { "a2enmod fastcgi":
       command => "a2enmod fastcgi",
       creates => '/etc/apache2/mods-enabled/fastcgi.load',
-      require => Package["apache2-mpm-worker"],
+      require => Package["apache2-mpm-worker", "libapache2-mod-fastcgi"],
       notify  => Service["apache2"],
   }
 

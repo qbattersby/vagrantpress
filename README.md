@@ -2,6 +2,9 @@
 
 *VagrantPress* is a packaged WordPress development environment.
 
+# You are a Wordpress Plugin or Wordpress Theme developer?
+
+
 ## Getting Started
 
 This is a fairly simple project to get up and running. 

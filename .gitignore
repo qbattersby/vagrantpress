@@ -1,3 +1,7 @@
 .vagrant
 .DS_Store
-projects/wptest.wp
+
+projects
+!projects/192.168.192.168
+!projects/test.wp
+
