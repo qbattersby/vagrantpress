@@ -74,6 +74,7 @@ which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There 
  * what happens when wordpress installation has no database and no mysql_dump.sql?
  * dns handling?!
  * deleting a directory in projects should delete the according database accordingly
+ * allow mysql remote access
+ * packages: xdebug, memcached, phpunit
 
 
- 
