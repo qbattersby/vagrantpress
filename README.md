@@ -41,20 +41,43 @@ in the Vagrantfile to point to your /etc/resolver directory.)
 
 ... you can start working on your Wordpress Plugins, Wordpress Themes or the Wordpress Core.
 
- * __Start by creating a new Wordpress installation.__  
-   Go to the projects directory and create a new directory inside it, like ```projects/another-site.wp```. 
-   Specify the Wordpress version which you want to install by creating a file or directory named after 
-   the version number, like ```projects/another-site.wp/3.5.1```. Wait about 10 seconds and see the magic happen. 
-   VagrantPress will install Wordpress into ```projects/another-site.wp```. As soon as it is ready,
-   a file called ```__ready__``` appears. You can delete ```__ready__``` at anytime.
- * Sometimes you may want to __log into your VagrantPress__ virtual machine with ```vagrant ssh```.
- * __Stop__ your VagrantPress virtual machine with ```vagrant halt```. 
- * __Destroy__ your VagrantPress virtual machine with ```vagrant destroy```. This will dump all MySQL data
-   into ```projects/another-site.wp/.mysql_dump```. By the way, ```vagrant up``` and ```vagrant reload```
-   looks for existing MySQL dumps and imports them.
- * Run wp-cli remotely via ```vagrant wp help```
+### Start VagrantPress
+In your console, change to your VagrantPress directory and run ```vagrant up``` to start the
+virtual machine. 
 
-@todo: improve workflow description
+### Wordpress Developing
+
+#### Create a new Wordpress Installation
+Go to the projects directory and create a new directory inside it, like ```projects/another-site.wp```. 
+Specify the Wordpress version which you want to install by creating a file or directory named after 
+the version number, like ```projects/another-site.wp/3.5.1```. Wait about 10 seconds and see the magic happen. 
+VagrantPress will install Wordpress into ```projects/another-site.wp```. As soon as it is ready,
+a file called ```__ready__``` appears. You can delete ```__ready__``` at anytime.
+
+Please note that there are no restrictions on the domain ending. You could create projects folders
+like ```my-site.dev``` or ```this.is.my.site```. Once you introduce new domain endings (like here
+```.dev``` and ```.is.my.site```) run ```vagrant reload``` to restart according services.
+(@todo create vagrant plugin to restart dnsmasq on guest and activate new domains, ```vagrant init-domains```)
+
+#### Usage of [wp-cli](http://wp-cli.org/)
+```vagrant wp help``` or ```vagrant wp help --path="/shared_projects/wordpress_site"```
+
+(@todo include path in command, like ```vagrant wordpress_site wp help```)
+
+#### Access your virtual machine via ssh
+We designed VagrantPress to be a seamless integration into your host system. Should you still
+want to log into your virtual machine, do it with ```vagrant ssh```.
+
+### Stop VagrantPress
+In your console, change to your VagrantPress directory and run ```vagrant halt``` to stop the
+virtual machine. 
+
+You can delete your virtual machine with ```vagrant destroy```. Should you have made any changes
+on the virtual machine, they will be deleted as well. VagrantPress keeps a backup of your
+Wordpress MySQL databases though. This is done automatically for you. MySQL Backups are kept in 
+```projects/your_wordpress_site.wp/.mysql_dump```. Once you run ```vagrant up``` or ```vagrant reload``` 
+and a database is missing for one of your wordpress sites, it will automatically create that 
+missing database and imports the MySQL Backup from ```projects/your_wordpress_site.wp/.mysql_dump```.
 
 
 ## Credentials
