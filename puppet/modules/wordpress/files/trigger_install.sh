@@ -57,9 +57,10 @@ while true; do
 
         version=$file_name
         printf "%s\n" "Installing wordpress version '$version' in directory '$dir'"
-
+        
         # change directory
         cd $dir
+        touch __please_wait_4__
 
         # parse name and domain 
         name_with_domain=$(basename $dir) # e.g. test.wp
@@ -68,11 +69,24 @@ while true; do
 
         # install wordpress with wp-cli ...
         wp core download --version=$version --path="."
-        wp core config --dbname="$name" --dbuser="root" --dbpass="vagrant" --dbhost="192.168.192.168"
+
+        rm __please_wait_4__
+        touch __please_wait_3__
+
+        wp core config --dbname="$name" --dbuser="root" --dbpass="vagrant" --dbhost="localhost"
+
+        rm __please_wait_3__
+        touch __please_wait_2__
+
         wp db create
+
+        rm __please_wait_2__
+        touch __please_wait_1__
+
         wp core install --url="http://$name_with_domain" --title="$name" --admin_name="vagrant" --admin_password="vagrant" --admin_email="vagrant@vagrant"
 
         # let user know i finished my job
+        rm __please_wait_1__
         touch __ready__
 
       fi
