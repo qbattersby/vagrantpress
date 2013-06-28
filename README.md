@@ -20,7 +20,6 @@ then type in your console:
 
 ```
 $ git clone https://github.com/hellominti/vagrantpress.git
-$ vagrant plugin install vagrant-dnsmasq
 $ cd vagrantpress
 $ cp .my.conf my.conf
 $ vagrant up; vagrant reload
