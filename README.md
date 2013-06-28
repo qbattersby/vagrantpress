@@ -25,14 +25,15 @@ $ cp .my.conf my.conf
 $ vagrant up; vagrant reload
 ```
 
-Open in your browser ...
- * [http://192.168.192.168](http://192.168.192.168) (phpinfo())
+You are good to go. Now open in your browser ...
+ * [http://192.168.192.168](http://192.168.192.168) (have a look at phpinfo())
  * [http://192.168.192.168/phpmyadmin](http://192.168.192.168/phpmyadmin)
  * [http://test.wp](http://test.wp) (verify DNS works)
  * [http://wptest.wp](http://wptest.wp) (a fresh wordpress installation)
 
-VagrantPress automates the DNS handling for you. You might be asked for your password to update your
-```/etc/resolver```. (If you are not on a Mac, you might need to change ```config.dnsmasq.resolver``` 
+VagrantPress automates all DNS handling for you. During *vagrant up|reload* you might be asked for 
+your password to update your ```/etc/resolver``` directory. 
+(If you are not on a Mac, you might need to change ```config.dnsmasq.resolver``` 
 in the Vagrantfile to point to your /etc/resolver directory.)
 
 
