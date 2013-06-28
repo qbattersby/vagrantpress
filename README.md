@@ -126,6 +126,9 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * deleting a directory in projects should delete the according database accordingly
  * allow mysql remote access
  * include some ftp package
+ * make usage of env[:ui] instead of ruby puts
+ * add tests (actually whats the best practice to test puppet files?)
+ * the very first vagrant up could need some memory. set memory to 256MB afterwards?
  * packages: memcached, phpunit
  * location on guest machine of synced folders
  * fix php module. which service has to be restarted so all php extensions (like mysql) are found and used? workaround atm:

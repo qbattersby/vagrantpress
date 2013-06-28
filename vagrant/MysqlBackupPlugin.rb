@@ -377,4 +377,8 @@ class MysqlBackupPlugin < Vagrant.plugin("2")
   action_hook(:mysql_backup, :machine_action_destroy) do |hook|
     hook.prepend(MysqlBackup::Export)
   end
+
+  action_hook(:mysql_backup, :machine_action_halt) do |hook|
+    hook.prepend(MysqlBackup::Export)
+  end
 end
