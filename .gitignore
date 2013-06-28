@@ -5,3 +5,5 @@ projects
 !projects/192.168.192.168
 !projects/test.wp
 
+# ignore custom user files/dirs
+my.conf

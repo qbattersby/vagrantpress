@@ -1,5 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require './vagrant/MysqlBackupPlugin'
+require './vagrant/WPCLI_Wrapper'
+require './vagrant/dns/vagrant-dnsmasq.rb'
 
 Vagrant.configure("2") do |config|
 
@@ -11,9 +14,11 @@ Vagrant.configure("2") do |config|
   # config.vm.network :forwarded_port, guest: 80, host: 8080
 
   config.vm.synced_folder "projects", "/shared_projects" # @todo 
+  config.vm.synced_folder "my.conf", "/my.conf" # @todo 
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "512"]
+    
   end
 
   config.vm.provision :puppet do |puppet|
@@ -23,16 +28,13 @@ Vagrant.configure("2") do |config|
    puppet.options = ["--verbose"]
   end
 
-  # use https://github.com/mattes/vagrant-dnsmasq plugin
-  # for dnsmasq handling
-  # @todo 
-  config.dnsmasq.domain = '.wp'
-  config.dnsmasq.ip = '192.168.192.168'
-  config.dnsmasq.dnsmasqconf = `brew --prefix`.strip + '/etc/dnsmasq.conf'
-  config.dnsmasq.keep_resolver_on_destroy = true
 
-  require './vagrant/MysqlBackupPlugin'
-  require './vagrant/WPCLI_Wrapper'
+
+
+
+  # for dnsmasq handling
+  config.dnsmasq.ip = '192.168.192.168'
+  config.dnsmasq.keep_resolver_on_destroy = true
 
 
 end

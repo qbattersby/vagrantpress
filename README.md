@@ -21,7 +21,9 @@ then type in your console:
 ```
 $ git clone https://github.com/hellominti/vagrantpress.git
 $ vagrant plugin install vagrant-dnsmasq
-$ cd vagrantpress && vagrant up; vagrant reload
+$ cd vagrantpress
+$ cp .my.conf my.conf
+$ vagrant up; vagrant reload
 ```
 
 Open [http://192.168.192.168](http://192.168.192.168) in your browser or [http://192.168.192.168/phpmyadmin](http://192.168.192.168/phpmyadmin)
@@ -77,5 +79,6 @@ which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There 
  * deleting a directory in projects should delete the according database accordingly
  * allow mysql remote access
  * packages: xdebug, memcached, phpunit
+ * Mac ships with bind! ;-) http://negativespace.net/2013/05/14/apache-dns-wildcard-hosting-with-mac-os-x/
 
 

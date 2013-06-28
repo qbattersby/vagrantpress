@@ -63,9 +63,16 @@ while true; do
         touch __please_wait_4__
 
         # parse name and domain 
-        name_with_domain=$(basename $dir) # e.g. test.wp
-        domain=${name_with_domain##*.} # e.g. wp
-        name=${name_with_domain/.$domain} # e.g. test
+        name_with_domain=$(basename $dir) # e.g. test.wp, test.sub.wp
+        domain=${name_with_domain#*.} # e.g. wp, sub.wp
+        name=${name_with_domain/.$domain} # e.g. test, test
+
+        if [[ name == domain ]]; then
+          # a directory with no domain ending results
+          # in name == domain. e.g. dir_without_domain
+          # continue with next for element ..
+          continue
+        fi
 
         # install wordpress with wp-cli ...
         wp core download --version=$version --path="."
