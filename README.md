@@ -93,6 +93,8 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
   </tr>
 </table>
 
+## How it works
+
 
 ## TODOS
 
