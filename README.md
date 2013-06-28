@@ -106,6 +106,7 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * allow mysql remote access
  * include some ftp package
  * packages: memcached, phpunit
+ * location on guest machine of synced folders
  * Vision: some kind of php version manager. run different wordpress sites with different php versions by adding a file like .php-version
  * __Vision: puppet for wordpress: make sure plugins/ themes are installed, configs set, default data included, ...__
 
