@@ -35,7 +35,7 @@ class wpcli::install{
       File[ "$install_path/installer.sh" ],
       Package[ 'curl' ],
       Package[ 'php5-cli' ],
-      Package[ 'git' ]
+      Package[ 'git-core' ]
     ],
     creates => "$install_path/bin/wp"
   }

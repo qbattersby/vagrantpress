@@ -95,6 +95,26 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
 
 ## How it works
 
+### ```vagrant up```
+
+ * apt-get update
+ * install some common packages: git-core, curl, wget, imagemagick, unzip, vim
+ * install apache2, do some configuration and symlink httpd.conf in files module dir
+ * install php5 with some bindings like php5-fpm. [see more](https://github.com/hellominti/vagrantpress/blob/master/puppet/modules/php5/manifests/init.pp)
+ * install mysql server
+ * install wp-cli
+ * install dnsmasq and make sure dnsmasq.conf from my.conf is included
+ * create a first wordpress installation 
+ * install the directory monitor tool that installs wordpress automatically
+ * mysql import? iterate over wordpress installations with wp-config.php. if no database is present and
+   .mysql_dump is present do an import.
+ * "register" domains used in projects directory and update /etc/resolver on host system
+
+ ### ```vagrant destroy```
+
+ * mysql export: iterate over wordpress installations with wp-config.php. if database is present
+   export database to .mysql_dump
+
 
 ## TODOS
 
@@ -107,6 +127,9 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * include some ftp package
  * packages: memcached, phpunit
  * location on guest machine of synced folders
+ * fix php module. which service has to be restarted so all php extensions (like mysql) are found and used? workaround atm:
+   do a vagrant reload after the very first vagrant up.
+ * make it modular. allow per user modifications to Vagrantfile, ...
  * Vision: some kind of php version manager. run different wordpress sites with different php versions by adding a file like .php-version
  * __Vision: puppet for wordpress: make sure plugins/ themes are installed, configs set, default data included, ...__
 
