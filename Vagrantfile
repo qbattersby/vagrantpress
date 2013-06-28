@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
   # for dnsmasq handling
   config.dnsmasq.ip = '192.168.192.168'
   config.dnsmasq.keep_resolver_on_destroy = true
+  config.dnsmasq.resolver = '/etc/resolver'
 
 
 end

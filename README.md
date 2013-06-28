@@ -25,14 +25,16 @@ $ cp .my.conf my.conf
 $ vagrant up; vagrant reload
 ```
 
-Open [http://192.168.192.168](http://192.168.192.168) in your browser or [http://192.168.192.168/phpmyadmin](http://192.168.192.168/phpmyadmin)
+Open in your browser ...
+ * [http://192.168.192.168](http://192.168.192.168) (phpinfo())
+ * [http://192.168.192.168/phpmyadmin](http://192.168.192.168/phpmyadmin)
+ * [http://test.wp](http://test.wp) (verify DNS works)
+ * [http://wptest.wp](http://wptest.wp) (a fresh wordpress installation)
 
-With the help of a DNS handling plugin, you can open  [http://test.wp](http://test.wp) 
-and [http://wptest.wp](http://wptest.wp). VagrantPress currently uses [vagrant-dnsmasq](https://github.com/mattes/vagrant-dnsmasq)
-which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There are alternatives available, please have a look at this 
-[list of other DNS handling plugins](https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Plugins#local-domain-resolution).
+VagrantPress automates the DNS handling for you. You might be asked for your password to update your
+```/etc/resolver```. (If you are not on a Mac, you might need to change ```config.dnsmasq.resolver``` 
+in the Vagrantfile to point to your /etc/resolver directory.)
 
-@todo: Integrate DNS handling into core VagrantPress?
 
 ## Once you've installed VagrantPress ...
 
@@ -73,11 +75,10 @@ which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There 
  * Keep a local copy of config files for apache, php, mysql, ... and symlink them to the virtual machine. 
    one can then edit config files without going to vagrant ssh 
  * refactor MysqlBackupPlugin.rb
+ * refactor vagrant-dns
  * what happens when wordpress installation has no database and no mysql_dump.sql?
- * dns handling?!
  * deleting a directory in projects should delete the according database accordingly
  * allow mysql remote access
- * packages: xdebug, memcached, phpunit
- * Mac ships with bind! ;-) http://negativespace.net/2013/05/14/apache-dns-wildcard-hosting-with-mac-os-x/
+ * packages: memcached, phpunit
 
 
