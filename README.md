@@ -48,6 +48,7 @@ which can be installed with ```vagrant plugin install vagrant-dnsmasq```. There 
  * __Destroy__ your VagrantPress virtual machine with ```vagrant destroy```. This will dump all MySQL data
    into ```projects/another-site.wp/.mysql_dump```. By the way, ```vagrant up``` and ```vagrant reload```
    looks for existing MySQL dumps and imports them.
+ * Run wp-cli remotely via ```vagrant wp help```
 
 @todo: improve workflow description
 

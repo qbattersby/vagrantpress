@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
   config.dnsmasq.keep_resolver_on_destroy = true
 
   require './vagrant/MysqlBackupPlugin'
+  require './vagrant/WPCLI_Wrapper'
 
 
 end
