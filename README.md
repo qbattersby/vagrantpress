@@ -21,7 +21,7 @@ then type in your console:
 ```
 $ git clone https://github.com/hellominti/vagrantpress.git
 $ cd vagrantpress
-$ cp .my.conf my.conf
+$ cp -R .my.conf my.conf
 $ vagrant up; vagrant reload
 ```
 
