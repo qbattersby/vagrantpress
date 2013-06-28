@@ -110,7 +110,8 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
    .mysql_dump is present do an import.
  * "register" domains used in projects directory and update /etc/resolver on host system
 
- ### ```vagrant destroy```
+
+### ```vagrant destroy```
 
  * mysql export: iterate over wordpress installations with wp-config.php. if database is present
    export database to .mysql_dump
