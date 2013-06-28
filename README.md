@@ -96,13 +96,15 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
 
 ## TODOS
 
- * Keep a local copy of config files for apache, php, mysql, ... and symlink them to the virtual machine. 
-   one can then edit config files without going to vagrant ssh 
+ * Expose config files of apache, php, mysql, ... so you dont have to vagrant ssh to change them
  * refactor MysqlBackupPlugin.rb
  * refactor vagrant-dns
  * what happens when wordpress installation has no database and no mysql_dump.sql?
  * deleting a directory in projects should delete the according database accordingly
  * allow mysql remote access
+ * include some ftp package
  * packages: memcached, phpunit
+ * Vision: some kind of php version manager. run different wordpress sites with different php versions by adding a file like .php-version
+
 
 
