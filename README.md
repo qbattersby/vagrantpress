@@ -136,5 +136,6 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * make it modular. allow per user modifications to Vagrantfile, ...
  * Vision: some kind of php version manager. run different wordpress sites with different php versions by adding a file like .php-version
  * __Vision: puppet for wordpress: make sure plugins/ themes are installed, configs set, default data included, ...__
+ * php5-fpm listen via socket
 
 
