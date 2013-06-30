@@ -18,6 +18,14 @@ class php5::install {
     require => Package["php5-fpm"],
   }
 
+  # use our httpd.conf file
+  file { "/etc/php5/fpm/pool.d/www.conf":
+      ensure => link,
+      source => "puppet:///modules/php5/php5-fpm-pool.d-www.conf",
+      require => Package['php5-fpm'],
+      notify  => Service["php5-fpm"],
+  }
+
   exec { "a2enmod actions":
       command => "a2enmod actions",
       creates => '/etc/apache2/mods-enabled/actions.load',
