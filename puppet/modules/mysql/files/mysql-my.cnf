@@ -32,6 +32,8 @@ nice    = 0
 #
 # * Basic Settings
 #
+# instead of running as user, run as vagrant
+# or make sure to 'chown -R _mysqld:_mysqld .mysql'
 user    = mysql
 pid-file  = /var/run/mysqld/mysqld.pid
 socket    = /var/run/mysqld/mysqld.sock

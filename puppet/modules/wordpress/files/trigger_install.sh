@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# -------------------------------------------------
-# a short helper to trigger wordpress installations
+# -------------------------------------------
+# a helper to trigger wordpress installations
 # 
-# This script will monitor a given directory. Create a new directory in the monitored 
-# directory and place a file (or directory) named with a wordpress version number in
-# your newly created directory. This script will then trigger a wordpress installation
+# This script will monitor a given directory. 
+# Create a new directory in the monitored directory and place a file 
+# (or directory) named with a wordpress version number in your newly created 
+# directory. This script will then trigger a wordpress installation
 # with the given wordpress version.
 # 
 # Example: 
@@ -17,7 +18,9 @@
 #   $ mkdir /watch/this/directory/new.wp
 # Create a file or directory with the wordpress version number
 #   $ touch /watch/this/directory/new.wp/3.5.2
-# ... the script will now install wordpress version 3.5.2 in /watch/this/directory/new.wp
+# ... the script will now install wordpress version 3.5.2 in 
+# /watch/this/directory/new.wp
+# 
 # The file 3.5.2 or directory 3.5.2 is deleted.
 #
 # Please note that /watch/this/directory/new.wp/ must only contain the file or
@@ -90,7 +93,12 @@ while true; do
         rm __please_wait_2__
         touch __please_wait_1__
 
-        wp core install --url="http://$name_with_domain" --title="$name" --admin_name="vagrant" --admin_password="vagrant" --admin_email="vagrant@vagrant"
+        wp core install \
+          --url="http://$name_with_domain" \
+          --title="$name" \
+          --admin_name="vagrant" \
+          --admin_password="vagrant" \
+          --admin_email="vagrant@vagrant"
 
         # let user know i finished my job
         rm __please_wait_1__

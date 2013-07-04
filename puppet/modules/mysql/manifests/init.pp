@@ -19,7 +19,6 @@ class mysql::install {
     command => "mysqladmin -uroot password $password; mysql --user='root' --password='vagrant' -e \"CREATE USER 'root' IDENTIFIED BY 'vagrant'; GRANT ALL ON *.* TO 'root'@'%'; FLUSH PRIVILEGES;\"",
   }
 
-  # use our httpd.conf file
   file { "/etc/mysql/my.cnf":
       ensure => link,
       source => "puppet:///modules/mysql/mysql-my.cnf",
@@ -27,11 +26,14 @@ class mysql::install {
       # notify  => Service["mysql"],
   }
 
-  # exec { "Grant MySQL server remote access":
-  #   subscribe => [ Package["mysql-server"], Package["mysql-client"] ],
-  #   refreshonly => true,
-  #   command => "mysql --user='root' --password='vagrant' --host='localhost' --skip-column-names -e \"SET PASSWORD FOR 'root'@'localhost' = PASSWORD('vagrant'); SET PASSWORD FOR 'root'@'%' = PASSWORD('vagrant'); GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION; FLUSH PRIVILEGES;\"",
-  #   require => Exec["Set MySQL server root password"],
-  # }
+
+  # use this file with user and password credentials
+  file { "/home/vagrant/.my.cnf":
+      ensure => link,
+      source => "puppet:///modules/mysql/home-my.cnf",
+      require => Package['mysql-server'],
+      owner => "vagrant",
+      mode => "600",
+  }
 
 }

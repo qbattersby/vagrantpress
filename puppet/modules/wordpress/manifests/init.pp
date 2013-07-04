@@ -1,11 +1,26 @@
 class wordpress::monitor_directory_and_install {
 
-  # @question: how do you like this?
 
   # link bash script and make it executable
   file { "/home/vagrant/trigger_install.sh":
       ensure => link,
       source => "puppet:///modules/wordpress/trigger_install.sh",
+      mode => "u+x",
+      owner => "vagrant",
+  }
+
+  # link bash script and make it executable
+  file { "/home/vagrant/export_mysql.sh":
+      ensure => link,
+      source => "puppet:///modules/wordpress/export_mysql.sh",
+      mode => "u+x",
+      owner => "vagrant",
+  }
+
+  # link bash script and make it executable
+  file { "/home/vagrant/import_mysql.sh":
+      ensure => link,
+      source => "puppet:///modules/wordpress/import_mysql.sh",
       mode => "u+x",
       owner => "vagrant",
   }
