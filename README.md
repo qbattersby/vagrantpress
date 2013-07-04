@@ -94,7 +94,8 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
 ## How it works
 
 ### TechStack
-Who wants to make this nicer? ;-)
+[Who wants to make this nicer? ;-)](https://docs.google.com/drawings/d/1-r2WpzCM0e9JgxsJxc8SorQDjKst99iKLo-hX_8CGBQ/edit?usp=sharing)
+
 ![TechStack](https://docs.google.com/drawings/d/1-r2WpzCM0e9JgxsJxc8SorQDjKst99iKLo-hX_8CGBQ/pub?w=1440&amp;h=1080)
 
 
@@ -127,7 +128,6 @@ Who wants to make this nicer? ;-)
  * refactor vagrant-dns
  * what happens when wordpress installation has no database and no mysql_dump.sql?
  * deleting a directory in projects should delete the according database accordingly
- * allow mysql remote access
  * include some ftp package
  * make usage of env[:ui] instead of ruby puts
  * add tests (actually whats the best practice to test puppet files?)
