@@ -18,12 +18,17 @@ class php5::install {
     require => Package["php5-fpm"],
   }
 
-  # use our httpd.conf file
   file { "/etc/php5/fpm/pool.d/www.conf":
       ensure => link,
       source => "puppet:///modules/php5/php5-fpm-pool.d-www.conf",
       require => Package['php5-fpm'],
       notify  => Service["php5-fpm"],
+  }
+
+  file { "/etc/phpmyadmin/config.inc.php":
+      ensure => link,
+      source => "puppet:///modules/php5/phpmyadmin-config.inc.php",
+      require => Package['phpmyadmin'],
   }
 
   exec { "a2enmod actions":
