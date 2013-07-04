@@ -60,9 +60,7 @@ like ```my-site.dev``` or ```this.is.my.site```. Once you introduce new domain e
 (@todo create vagrant plugin to restart dnsmasq on guest and activate new domains, ```vagrant init-domains```)
 
 #### Usage of [wp-cli](http://wp-cli.org/)
-```vagrant wp help``` or ```vagrant wp help --path="/shared_projects/wordpress_site"```
-
-(@todo include path in command, like ```vagrant wordpress_site wp help```)
+```vagrant wordpress_site wp help```
 
 #### Access your virtual machine via ssh
 We designed VagrantPress to be a seamless integration into your host system. Should you still
@@ -94,6 +92,11 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
 </table>
 
 ## How it works
+
+### TechStack
+Who wants to make this nicer? ;-)
+![TechStack](https://docs.google.com/drawings/d/1-r2WpzCM0e9JgxsJxc8SorQDjKst99iKLo-hX_8CGBQ/pub?w=1440&amp;h=1080)
+
 
 ### ```vagrant up```
 
@@ -137,5 +140,8 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * Vision: some kind of php version manager. run different wordpress sites with different php versions by adding a file like .php-version
  * __Vision: puppet for wordpress: make sure plugins/ themes are installed, configs set, default data included, ...__
  * php5-fpm listen via socket
+
+
+
 
 
