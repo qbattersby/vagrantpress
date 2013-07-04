@@ -118,5 +118,6 @@ $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
 
+// also check session.gc_maxlifetime which might limit this setting here
 $cfg['LoginCookieValidity'] = 946080000; // 1 year
 
