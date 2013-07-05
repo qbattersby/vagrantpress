@@ -17,9 +17,9 @@ module MysqlBackup
         wp_config_file = (dir + "wp-config.php")
         if wp_config_file.exist?
           wp_config = IO.read(wp_config_file)
-            .match(/define\('DB_NAME', '(.*)'\);/)
+          .match(/define\('DB_NAME', '(.*)'\);/)
           database_name = wp_config[1]
-          
+
           system "vagrant ssh -c \"./import_mysql.sh \
             -p /shared_projects/#{dir.basename} -d #{database_name}\""
         end
@@ -46,17 +46,17 @@ module MysqlBackup
         wp_config_file = (dir + "wp-config.php")
         if wp_config_file.exist?
           wp_config = IO.read(wp_config_file)
-            .match(/define\('DB_NAME', '(.*)'\);/)
+          .match(/define\('DB_NAME', '(.*)'\);/)
           database_name = wp_config[1]
-          
+
           system "vagrant ssh -c \"./export_mysql.sh \
             -p /shared_projects/#{dir.basename} -d #{database_name}\""
         end
       end
-      
+
       @app.call(env)
     end
-    
+
   end
 
 end

@@ -25,6 +25,7 @@ class wordpress::monitor_directory_and_install {
       owner => "vagrant",
   }
 
+
   # run in background
   exec{ 'nohup trigger_install.sh':
     cwd => "/home/vagrant",

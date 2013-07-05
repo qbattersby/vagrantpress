@@ -8,7 +8,7 @@ class WPCLI_Wrapper < Vagrant.plugin("2")
 
     class WpCommand < Vagrant.plugin('2', :command)
 
-      def execute        
+      def execute
         cmds = ARGV
         wordpress_dir = cmds.shift && cmds.shift
         system "vagrant ssh -c \"cd /shared_projects/#{wordpress_dir} && \
