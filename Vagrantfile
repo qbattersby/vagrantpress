@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "my.conf", "/my.conf" # @todo 
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "256"]
+    vb.customize ["modifyvm", :id, "--memory", "512"]
     
   end
 
