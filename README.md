@@ -141,7 +141,9 @@ missing database and imports the MySQL Backup from ```projects/your_wordpress_si
  * __Vision: puppet for wordpress: make sure plugins/ themes are installed, configs set, default data included, ...__
  * php5-fpm listen via socket
 
-
+## Personal Notes
+To run a quick restart of vbox when it borks after reboot.
+sudo /Library/StartupItems/VirtualBox/VirtualBox restart
 
 
 
