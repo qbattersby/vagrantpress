@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-require './vagrant/MysqlBackupPlugin'
-require './vagrant/WPCLI_Wrapper'
+require './vagrant/MysqlBackupPlugin.rb'
+require './vagrant/WPCLI_Wrapper.rb'
 require './vagrant/dns/vagrant-dnsmasq.rb'
 
 Vagrant.configure("2") do |config|
